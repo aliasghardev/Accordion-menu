@@ -5,7 +5,7 @@
 ![accordion menu](https://github.com/aliasghardev/Accordion-menu/assets/144837096/6e9ccb4a-9585-4db7-8581-c4b98acef809)
 
 
-- [Demo Project](https://aliasghardev.github.io/todo-list/)
+- [Demo Project](https://aliasghardev.github.io/Accordion-menu/)
 
 - Developed by aliasghar gholami
 
