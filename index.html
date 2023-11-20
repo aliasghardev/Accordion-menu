@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/output.css">
+    <link rel="stylesheet" href="font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/master.css">
+    
+</head>
+
+<body>
+    <main class="w-full font-primary">
+        <section class="w-full h-screen flex justify-center items-center bg-yellow-600">
+            <div class="w-1/3 flex flex-wrap">
+                <span  data-status="off" class="w-full"><h2 class="capitalize text-2xl  w-full h-[50px] bg-red-600 border cursor-pointer p-2"><i class="bi bi-person-fill"></i> profile</h2>
+                    <ul  class=" overflow-hidden h-0  ">
+                        <li class="border-purple-900 bg-slate-600 border p-2 capitalize text-xl">posts</li>
+                        <li class="border-purple-900 bg-slate-600 border p-2 capitalize text-xl">picture</li>
+                    </ul>
+                </span>
+                <span  data-status="off" class="w-full"><h2 class="capitalize text-2xl  w-full h-[50px] bg-red-600 border cursor-pointer p-2"><i class="bi bi-chat-dots-fill"></i> messages</h2>
+                    <ul  class=" overflow-hidden h-0 ">
+                        <li class="border-purple-900 bg-slate-600 border p-2 capitalize text-xl">new</li>
+                        <li class="border-purple-900 bg-slate-600 border p-2 capitalize text-xl">sent</li>
+                        <li class="border-purple-900 bg-slate-600 border p-2 capitalize text-xl">spam</li>
+                    </ul>
+                </span>
+                <span  data-status="off" class="w-full"><h2 class="capitalize text-2xl  w-full h-[50px] bg-red-600 border cursor-pointer p-2"><i class="bi bi-gear-fill"></i> setting</h2>
+                    <ul  class=" overflow-hidden h-0">
+                        <li class="border-purple-900 bg-slate-600 border p-2 capitalize text-xl">password</li>
+                        <li class="border-purple-900 bg-slate-600 border p-2 capitalize text-xl">language</li>
+                    </ul>
+                </span>
+                <span  data-status="off" class="w-full"><h2 class="capitalize text-2xl  w-full h-[50px] bg-red-600 border cursor-pointer p-2"><i class="bi bi-text-paragraph"></i> paragraph</h2>
+                    <ul  class=" overflow-hidden h-0 ">
+                        <li class="border-purple-900 bg-slate-600 border p-2 capitalize text-xl"><p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorem commodi impedit obcaecati fugiat incidunt quisquam sint ea amet! Sint non exercitationem fugiat inventore cupiditate soluta, neque accusamus voluptatibus consequatur ipsum.</p></li>
+                    </ul>
+                </span>
+                <span  data-status="off" class="w-full"><h2 class="capitalize text-2xl  w-full h-[50px] bg-red-600 border cursor-pointer p-2"><i class="bi bi-person-lines-fill"></i> contact</h2>
+                    <ul  class=" overflow-hidden h-0  ">
+                        <li class="border-purple-900 bg-slate-600  border p-2 capitalize text-xl">phone</li>
+                        <li class="border-purple-900 bg-slate-600  border p-2 capitalize text-xl">email</li>
+                    </ul>
+                </span>
+                
+            </div>
+        </section>
+    </main>
+
+    <script>
+        
+        const _span = document.querySelectorAll('span')
+        const _ul = document.querySelectorAll('ul')
+
+        _ul.forEach((val) => {
+            let h = val.clientHeight
+            val.setAttribute('data-height', h)
+            val.classList.add('h-0')
+        })
+
+
+        _span.forEach((val, index) => {
+            val.addEventListener('click', () => {
+
+                
+                for (let i = 0; i < _ul.length; i++) {
+                    if (index != i) {
+                        _ul[i].classList.add('h-0')
+                        _span[i].setAttribute('data-status', 'off')
+                    }
+                }
+                
+                let child = val.children
+                if (
+                    (val.getAttribute('data-status')) == 'off'
+                ) {
+                    let h = child[1].getAttribute('data-height')
+                    child[1].classList.remove('h-0')
+                    val.setAttribute('data-status', 'on')
+                } else {
+                    child[1].classList.add('h-0')
+                    val.setAttribute('data-status', 'off')
+                }
+
+            })
+        })
+        
+        
+
+    </script>
+</body>
+</html>
